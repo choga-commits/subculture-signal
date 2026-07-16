@@ -2,52 +2,117 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="서브컬처 산업을 취업 준비 관점으로 읽는 데일리 브리핑">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="웹툰, 웹소설, 애니메이션, 만화, AI 캐릭터 챗봇 산업을 취업 준비 관점으로 읽는 데일리 브리핑">
   <title>SUBCULTURE SIGNAL</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./category.css">
 </head>
 <body>
 <main id="top">
   <header class="site-header">
-    <a class="wordmark" href="#top"><span class="wordmark-dot"></span>SUBCULTURE SIGNAL</a>
+    <button class="wordmark wordmark-button" type="button" data-home><span class="wordmark-dot"></span>SUBCULTURE SIGNAL</button>
     <div class="header-meta"><span>SEOUL / KST</span><span class="live"><i></i> DAILY 09:00</span></div>
   </header>
 
-  <section class="hero">
-    <div class="hero-kicker">ISSUE 001 · 2026.07.16 THU</div>
-    <h1>취향을 넘어,<br><em>산업의 신호</em>를 읽다.</h1>
-    <p class="hero-copy">웹툰·웹소설·AI 캐릭터 채팅·만화·애니메이션의 변화를 취업 준비생의 시선으로 압축한 아침 브리핑입니다.</p>
-    <div class="hero-stats"><div><strong>8</strong><span>CHECKED SOURCES</span></div><div><strong>5</strong><span>SECTORS</span></div><div><strong>3</strong><span>CAREER SIGNALS</span></div></div>
-    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+  <div id="landing-view">
+    <section class="category-landing" aria-labelledby="category-title">
+      <div class="category-intro">
+        <div class="hero-kicker">ISSUE 001 · 2026.07.16 THU</div>
+        <h1 id="category-title">오늘, 어떤<br><em>산업의 신호</em>를<br>읽을까요?</h1>
+        <p>관심 있는 카테고리를 선택하면 최신 기사부터 날짜별로 볼 수 있습니다.</p>
+      </div>
+      <div class="category-grid" aria-label="브리핑 카테고리">
+        <button class="category-card category-card-01" type="button" data-group="webtoon-novel">
+          <span class="category-number">01</span><span class="category-eyebrow">STORY IP</span><strong>웹툰 / 웹소설</strong>
+          <span class="category-description">연재에서 영상화까지, 이야기 IP의 확장과 유통을 읽습니다.</span>
+          <span class="category-card-footer"><b>4 STORIES</b><i aria-hidden="true">→</i></span>
+        </button>
+        <button class="category-card category-card-02" type="button" data-group="animation-manga">
+          <span class="category-number">02</span><span class="category-eyebrow">VISUAL CONTENT</span><strong>애니메이션 / 만화</strong>
+          <span class="category-description">제작·편성·출판을 가로지르는 글로벌 콘텐츠 흐름을 살핍니다.</span>
+          <span class="category-card-footer"><b>2 STORIES</b><i aria-hidden="true">→</i></span>
+        </button>
+        <button class="category-card category-card-03" type="button" data-group="ai-character-chatbot">
+          <span class="category-number">03</span><span class="category-eyebrow">INTERACTIVE CHARACTER</span><strong>AI 캐릭터 챗봇</strong>
+          <span class="category-description">대화형 캐릭터와 팬 경험이 만드는 새로운 시장을 추적합니다.</span>
+          <span class="category-card-footer"><b>2 STORIES</b><i aria-hidden="true">→</i></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="signal-section"><div class="section-heading light"><p>SIGNAL RADAR</p><h2>지금 커지는 흐름</h2></div><div class="signal-list"><div class="signal-row"><span>01</span><div><h3>CONNECTED CHARACTER IP</h3><p>캐릭터가 작품 안에 머물지 않고 채팅·아바타·영상으로 이어집니다.</p></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div><div class="signal-row"><span>02</span><div><h3>IP ADAPTATION PIPELINE</h3><p>웹소설→웹툰→애니메이션으로 이어지는 각색 조직이 전문화됩니다.</p></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div><div class="signal-row"><span>03</span><div><h3>CREATOR ANALYTICS</h3><p>창작 감각과 함께 유입·리텐션·팬 반응을 읽는 능력이 중요해집니다.</p></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div></div></section>
+  </div>
+
+  <section class="category-detail" id="detail-view" aria-labelledby="detail-title" hidden>
+    <button class="back-button" type="button" data-home>← 카테고리로 돌아가기</button>
+    <div class="detail-header"><div><p id="detail-eyebrow"></p><h1 id="detail-title"></h1><span id="detail-description"></span></div><strong id="detail-count"></strong></div>
+    <nav class="category-switcher" aria-label="다른 카테고리 보기">
+      <button type="button" data-group="webtoon-novel">웹툰 / 웹소설</button>
+      <button type="button" data-group="animation-manga">애니메이션 / 만화</button>
+      <button type="button" data-group="ai-character-chatbot">AI 캐릭터 챗봇</button>
+    </nav>
+    <div class="dated-briefings" id="dated-briefings"></div>
   </section>
 
-  <nav class="topic-strip"><span>TRACKING</span><a href="#ai">AI 캐릭터</a><a href="#webtoon">웹툰</a><a href="#novel">웹소설</a><a href="#manga">만화</a><a href="#anime">애니메이션</a></nav>
+  <div id="article-store" hidden>
+    <article class="story-card" data-group="ai-character-chatbot" data-date="2026-07-09"><div class="card-topline"><span class="category-tag tag-ai">AI 캐릭터</span><time>JUL 09</time></div><h3>Character.AI, 채팅 가능한 세로형 마이크로드라마 공개</h3><p class="summary">Character.AI가 자체 스튜디오 제작 세로형 시리즈를 출시했습니다. 에피소드를 본 뒤 등장인물과 직접 대화하며 이야기를 이어가는 구조입니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>AI 캐릭터 서비스의 경쟁축이 대화 품질을 넘어 영상·오디오·소설이 연결된 ‘체류형 엔터테인먼트’로 확장되고 있다는 신호입니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#콘텐츠PM</b><b>#트랜스미디어</b><b>#UX기획</b></div></div><a class="source-link" href="https://blog.character.ai/cai-series/" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
+    <article class="story-card" data-group="ai-character-chatbot" data-date="2026-06-17"><div class="card-topline"><span class="category-tag tag-ai">AI 캐릭터</span><time>JUN 17</time></div><h3>캐릭터 창작자에게 성과 지표와 발견 도구가 붙는다</h3><p class="summary">Character.AI가 상호작용·팔로워·좋아요·유입 경로를 보여주는 Creator Insights와 창작자 팔로우, 리더보드를 발표했습니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>캐릭터 제작이 개인 놀이에서 크리에이터 생태계로 전환되는 단계입니다. 콘텐츠 운영과 데이터 분석 역량이 함께 필요해집니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#크리에이터운영</b><b>#데이터리터러시</b><b>#커뮤니티</b></div></div><a class="source-link" href="https://blog.character.ai/creator-bundle/" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
+    <article class="story-card" data-group="webtoon-novel" data-date="2026-05-14"><div class="card-topline"><span class="category-tag tag-webtoon">웹툰</span><time>MAY 14</time></div><h3>웹툰 4편, 워너브러더스 애니메이션 개발 라인업 합류</h3><p class="summary">WEBTOON Entertainment와 Warner Bros. Animation이 로맨스·판타지·액션·코미디 작품 4편을 새로운 애니메이션 개발작으로 발표했습니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>플랫폼의 핵심 가치는 연재 매출뿐 아니라 글로벌 영상화가 가능한 IP 파이프라인에 있습니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#IP사업</b><b>#스토리기획</b><b>#글로벌제휴</b></div></div><a class="source-link" href="https://ir.webtoon.com/news-releases/news-release-details/webtoon-entertainment-and-warner-bros-animation-announce-new" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
+    <article class="story-card" data-group="webtoon-novel" data-date="2026-04-29"><div class="card-topline"><span class="category-tag tag-novel">웹소설</span><time>APR 29</time></div><h3>일본 라이트노벨 IP가 세로형 웹툰으로 다시 태어난다</h3><p class="summary">LINE Digital Frontier·REDICE STUDIO·KADOKAWA가 STUDIO WHITE를 출범해 로도스도 전기, 소드 아트 온라인 등의 스핀오프를 웹툰화합니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>웹소설·라이트노벨→웹툰→글로벌 유통으로 이어지는 미디어 믹스가 제작 조직 단위로 고도화되고 있습니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#노블코믹스</b><b>#각색</b><b>#제작관리</b></div></div><a class="source-link" href="https://ir.webtoon.com/news-releases/news-release-details/webtoon-entertainments-line-digital-frontier-collaboration" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
+    <article class="story-card" data-group="webtoon-novel" data-date="2026-04-27"><div class="card-topline"><span class="category-tag tag-webtoon">웹툰</span><time>APR 27</time></div><h3>웹툰 캐릭터가 AI 아바타와 대화 경험으로 확장</h3><p class="summary">WEBTOON Entertainment와 Genies가 창작자가 캐릭터를 인터랙티브 디지털 아바타로 전환할 수 있는 도구를 개발합니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>웹툰과 AI 캐릭터 채팅이 별도 시장이 아니라 하나의 IP 경험으로 합쳐지고 있습니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#팬덤UX</b><b>#라이선싱</b><b>#AI콘텐츠</b></div></div><a class="source-link" href="https://ir.webtoon.com/news-releases/news-release-details/webtoon-entertainment-partners-genies-expand-character-driven" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
+    <article class="story-card" data-group="animation-manga" data-date="2026-06-23"><div class="card-topline"><span class="category-tag tag-anime">애니메이션</span><time>JUN 23</time></div><h3>넷플릭스, 원작 각색과 글로벌 오리지널을 동시에 확대</h3><p class="summary">넷플릭스가 안시에서 THE ONE PIECE, Fool Night, 교토애니메이션 신작 등 글로벌 애니메이션 라인업을 공개했습니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>애니메이션은 글로벌 스트리밍 플랫폼의 주변 장르가 아니라 핵심 카테고리가 됐습니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#글로벌편성</b><b>#현지화</b><b>#제작파트너십</b></div></div><a class="source-link" href="https://about.netflix.com/en/news/netflix-unveils-upcoming-anime-slate-out-of-annecy-festival" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
+    <article class="story-card" data-group="animation-manga" data-date="2026-07-01"><div class="card-topline"><span class="category-tag tag-manga">만화</span><time>JUL 01</time></div><h3>7월 디지털 코믹스 신작 98종, 출판사의 디지털 동시 운영 지속</h3><p class="summary">슈에이샤는 2026년 7월 디지털 코믹스 발매 예정작 98종을 공개했습니다. 종이 단행본과 디지털 캘린더가 병행 운영됩니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>포맷별 발매·가격·프로모션을 함께 설계하는 운영 역량이 중요합니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#디지털출판</b><b>#메타데이터</b><b>#편성운영</b></div></div><a class="source-link" href="https://books.shueisha.co.jp/newcomics/index.html?digital=1" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
+    <article class="story-card" data-group="webtoon-novel" data-date="2026-05-06"><div class="card-topline"><span class="category-tag tag-novel">웹소설</span><time>MAY 06</time></div><h3>부산스토리마켓, 웹툰·웹소설·AI 콘텐츠를 한 시장에서 거래</h3><p class="summary">2026 부산스토리마켓은 도서·웹툰·웹소설·스토리와 AI 콘텐츠를 아우르며 국내외 제작사·방송사·투자사와 비즈니스 미팅을 엽니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>작품 감상만큼 피칭 문서와 2차 판권 구조를 이해하는 것이 경쟁력이 됩니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#피칭</b><b>#2차판권</b><b>#콘텐츠마켓</b></div></div><a class="source-link" href="https://www.acfm.kr/9904_DATA/File/2026_%EB%B6%80%EC%82%B0%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%A7%88%EC%BC%93_%EC%9B%90%EC%B2%9CIP_%EB%AA%A8%EC%A7%91_%EA%B3%B5%EA%B3%A0%EB%AC%B8.pdf?ver=1" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
+  </div>
 
-  <section class="lead-grid">
-    <div class="section-heading"><p>THE BIG PICTURE</p><h2>오늘의 한 문장</h2></div>
-    <div class="lead-statement"><span class="big-number">01</span><p><strong>‘보는 콘텐츠’에서 ‘대화하고 머무는 세계’로.</strong> 캐릭터 IP가 영상·채팅·아바타를 넘나들며, 콘텐츠 기획과 제품 경험의 경계가 빠르게 흐려지고 있습니다.</p><small>오늘 수집한 발표를 종합한 편집부 해석</small></div>
-  </section>
-
-  <section class="brief-section">
-    <div class="section-heading row-heading"><div><p>DAILY INTELLIGENCE</p><h2>오늘의 브리핑</h2></div><span>8 STORIES / VERIFIED LINKS</span></div>
-    <div class="card-grid">
-      <article class="story-card featured" id="ai"><div class="card-topline"><span class="category-tag tag-ai">AI 캐릭터</span><time>JUL 09</time></div><h3>Character.AI, 채팅 가능한 세로형 마이크로드라마 공개</h3><p class="summary">Character.AI가 자체 스튜디오 제작 세로형 시리즈를 출시했습니다. 에피소드를 본 뒤 등장인물과 직접 대화하며 이야기를 이어가는 구조입니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>AI 캐릭터 서비스의 경쟁축이 대화 품질을 넘어 영상·오디오·소설이 연결된 ‘체류형 엔터테인먼트’로 확장되고 있다는 신호입니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#콘텐츠PM</b><b>#트랜스미디어</b><b>#UX기획</b></div></div><a class="source-link" href="https://blog.character.ai/cai-series/" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
-      <article class="story-card"><div class="card-topline"><span class="category-tag tag-ai">AI 캐릭터</span><time>JUN 17</time></div><h3>캐릭터 창작자에게 성과 지표와 발견 도구가 붙는다</h3><p class="summary">Character.AI가 상호작용·팔로워·좋아요·유입 경로를 보여주는 Creator Insights와 창작자 팔로우, 리더보드를 발표했습니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>캐릭터 제작이 개인 놀이에서 크리에이터 생태계로 전환되는 단계입니다. 콘텐츠 운영과 데이터 분석 역량이 함께 필요해집니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#크리에이터운영</b><b>#데이터리터러시</b><b>#커뮤니티</b></div></div><a class="source-link" href="https://blog.character.ai/creator-bundle/" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
-      <article class="story-card" id="webtoon"><div class="card-topline"><span class="category-tag tag-webtoon">웹툰</span><time>MAY 14</time></div><h3>웹툰 4편, 워너브러더스 애니메이션 개발 라인업 합류</h3><p class="summary">WEBTOON Entertainment와 Warner Bros. Animation이 로맨스·판타지·액션·코미디 작품 4편을 새로운 애니메이션 개발작으로 발표했습니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>플랫폼의 핵심 가치는 연재 매출뿐 아니라 글로벌 영상화가 가능한 IP 파이프라인에 있습니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#IP사업</b><b>#스토리기획</b><b>#글로벌제휴</b></div></div><a class="source-link" href="https://ir.webtoon.com/news-releases/news-release-details/webtoon-entertainment-and-warner-bros-animation-announce-new" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
-      <article class="story-card" id="novel"><div class="card-topline"><span class="category-tag tag-novel">웹소설</span><time>APR 29</time></div><h3>일본 라이트노벨 IP가 세로형 웹툰으로 다시 태어난다</h3><p class="summary">LINE Digital Frontier·REDICE STUDIO·KADOKAWA가 STUDIO WHITE를 출범해 로도스도 전기, 소드 아트 온라인 등의 스핀오프를 웹툰화합니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>웹소설·라이트노벨→웹툰→글로벌 유통으로 이어지는 미디어 믹스가 제작 조직 단위로 고도화되고 있습니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#노블코믹스</b><b>#각색</b><b>#제작관리</b></div></div><a class="source-link" href="https://ir.webtoon.com/news-releases/news-release-details/webtoon-entertainments-line-digital-frontier-collaboration" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
-      <article class="story-card"><div class="card-topline"><span class="category-tag tag-webtoon">웹툰</span><time>APR 27</time></div><h3>웹툰 캐릭터가 AI 아바타와 대화 경험으로 확장</h3><p class="summary">WEBTOON Entertainment와 Genies가 창작자가 캐릭터를 인터랙티브 디지털 아바타로 전환할 수 있는 도구를 개발합니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>웹툰과 AI 캐릭터 채팅이 별도 시장이 아니라 하나의 IP 경험으로 합쳐지고 있습니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#팬덤UX</b><b>#라이선싱</b><b>#AI콘텐츠</b></div></div><a class="source-link" href="https://ir.webtoon.com/news-releases/news-release-details/webtoon-entertainment-partners-genies-expand-character-driven" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
-      <article class="story-card" id="anime"><div class="card-topline"><span class="category-tag tag-anime">애니메이션</span><time>JUN 23</time></div><h3>넷플릭스, 원작 각색과 글로벌 오리지널을 동시에 확대</h3><p class="summary">넷플릭스가 안시에서 THE ONE PIECE, Fool Night, 교토애니메이션 신작 등 글로벌 애니메이션 라인업을 공개했습니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>애니메이션은 글로벌 스트리밍 플랫폼의 주변 장르가 아니라 핵심 카테고리가 됐습니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#글로벌편성</b><b>#현지화</b><b>#제작파트너십</b></div></div><a class="source-link" href="https://about.netflix.com/en/news/netflix-unveils-upcoming-anime-slate-out-of-annecy-festival" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
-      <article class="story-card" id="manga"><div class="card-topline"><span class="category-tag tag-manga">만화</span><time>JUL 01</time></div><h3>7월 디지털 코믹스 신작 98종, 출판사의 디지털 동시 운영 지속</h3><p class="summary">슈에이샤는 2026년 7월 디지털 코믹스 발매 예정작 98종을 공개했습니다. 종이 단행본과 디지털 캘린더가 병행 운영됩니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>포맷별 발매·가격·프로모션을 함께 설계하는 운영 역량이 중요합니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#디지털출판</b><b>#메타데이터</b><b>#편성운영</b></div></div><a class="source-link" href="https://books.shueisha.co.jp/newcomics/index.html?digital=1" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
-      <article class="story-card"><div class="card-topline"><span class="category-tag tag-novel">웹소설</span><time>MAY 06</time></div><h3>부산스토리마켓, 웹툰·웹소설·AI 콘텐츠를 한 시장에서 거래</h3><p class="summary">2026 부산스토리마켓은 도서·웹툰·웹소설·스토리와 AI 콘텐츠를 아우르며 국내외 제작사·방송사·투자사와 비즈니스 미팅을 엽니다.</p><div class="why-box"><span>WHY IT MATTERS</span><p>작품 감상만큼 피칭 문서와 2차 판권 구조를 이해하는 것이 경쟁력이 됩니다.</p></div><div class="skill-line"><span>채용 키워드</span><div><b>#피칭</b><b>#2차판권</b><b>#콘텐츠마켓</b></div></div><a class="source-link" href="https://www.acfm.kr/9904_DATA/File/2026_%EB%B6%80%EC%82%B0%EC%8A%A4%ED%86%A0%EB%A6%AC%EB%A7%88%EC%BC%93_%EC%9B%90%EC%B2%9CIP_%EB%AA%A8%EC%A7%91_%EA%B3%B5%EA%B3%A0%EB%AC%B8.pdf?ver=1" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>
-    </div>
-  </section>
-
-  <section class="signal-section"><div class="section-heading light"><p>SIGNAL RADAR</p><h2>지금 커지는 흐름</h2></div><div class="signal-list"><div class="signal-row"><span>01</span><div><h3>CONNECTED CHARACTER IP</h3><p>캐릭터가 작품 안에 머물지 않고 채팅·아바타·영상으로 이어집니다.</p></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div><div class="signal-row"><span>02</span><div><h3>IP ADAPTATION PIPELINE</h3><p>웹소설→웹툰→애니메이션으로 이어지는 각색 조직이 전문화됩니다.</p></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div><div class="signal-row"><span>03</span><div><h3>CREATOR ANALYTICS</h3><p>창작 감각과 함께 유입·리텐션·팬 반응을 읽는 능력이 중요해집니다.</p></div><div class="meter"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div></div></section>
-
-  <section class="career-section"><div class="career-intro"><p>FOR YOUR CAREER</p><h2>오늘의<br>취업 준비</h2><span>읽고 끝내지 않도록, 30분짜리 행동으로 바꿨습니다.</span></div><ol class="action-list"><li><span>10 MIN</span><div><strong>두 서비스를 비교하세요.</strong><p>Character.AI의 마이크로드라마와 웹툰 원작 애니메이션 발표에서 공통된 ‘캐릭터 확장’ 방식을 3줄로 정리합니다.</p></div></li><li><span>15 MIN</span><div><strong>포트폴리오 한 장을 만드세요.</strong><p>좋아하는 IP 하나를 골라 웹툰→영상→대화형 캐릭터로 확장하는 사용자 여정을 그려봅니다.</p></div></li><li><span>05 MIN</span><div><strong>채용 언어로 번역하세요.</strong><p>‘덕질’을 팬덤 이해, 리텐션 분석, IP 해석력, 커뮤니티 감각이라는 역량으로 바꿔 적어봅니다.</p></div></li></ol></section>
-
-  <footer><div><span class="wordmark-dot"></span><strong>SUBCULTURE SIGNAL</strong></div><p>매일 오전 9시 업데이트 · 공개 자료를 요약하며, 중요한 판단은 원문 확인을 권장합니다.</p><a href="#top">BACK TO TOP ↑</a></footer>
+  <footer><div><span class="wordmark-dot"></span><strong>SUBCULTURE SIGNAL</strong></div><p>매일 오전 9시 KST 업데이트 · 공개 자료를 요약하며, 중요한 판단은 원문 확인을 권장합니다.</p><button type="button" data-home>CATEGORY HOME ↑</button></footer>
 </main>
+
+<script>
+  const groups = {
+    "webtoon-novel": { title: "웹툰 / 웹소설", eyebrow: "STORY IP · DAILY INTELLIGENCE", description: "연재에서 영상화까지, 이야기 IP의 확장과 유통을 읽습니다." },
+    "animation-manga": { title: "애니메이션 / 만화", eyebrow: "VISUAL CONTENT · DAILY INTELLIGENCE", description: "제작·편성·출판을 가로지르는 글로벌 콘텐츠 흐름을 살핍니다." },
+    "ai-character-chatbot": { title: "AI 캐릭터 챗봇", eyebrow: "INTERACTIVE CHARACTER · DAILY INTELLIGENCE", description: "대화형 캐릭터와 팬 경험이 만드는 새로운 시장을 추적합니다." }
+  };
+  const landing = document.getElementById("landing-view");
+  const detail = document.getElementById("detail-view");
+  const datedBriefings = document.getElementById("dated-briefings");
+
+  function showGroup(id, updateHash = true) {
+    const group = groups[id];
+    if (!group) return showHome(false);
+    const articles = [...document.querySelectorAll(`#article-store .story-card[data-group="${id}"]`)].sort((a, b) => b.dataset.date.localeCompare(a.dataset.date));
+    document.getElementById("detail-eyebrow").textContent = group.eyebrow;
+    document.getElementById("detail-title").textContent = group.title;
+    document.getElementById("detail-description").textContent = group.description;
+    document.getElementById("detail-count").innerHTML = `${articles.length} STORIES<br><small>VERIFIED LINKS</small>`;
+    document.querySelectorAll(".category-switcher button").forEach(button => button.classList.toggle("active", button.dataset.group === id));
+    datedBriefings.replaceChildren();
+    [...new Set(articles.map(article => article.dataset.date))].forEach(date => {
+      const dateArticles = articles.filter(article => article.dataset.date === date);
+      const section = document.createElement("section"); section.className = "date-group";
+      const heading = document.createElement("div"); heading.className = "date-heading";
+      heading.innerHTML = `<time>${date.replaceAll("-", ".")}</time><span>${dateArticles.length} STORIES</span>`;
+      const grid = document.createElement("div"); grid.className = "card-grid";
+      dateArticles.forEach(article => grid.append(article.cloneNode(true)));
+      section.append(heading, grid); datedBriefings.append(section);
+    });
+    landing.hidden = true; detail.hidden = false;
+    if (updateHash) location.hash = id;
+    scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function showHome(updateHash = true) {
+    landing.hidden = false; detail.hidden = true;
+    if (updateHash) history.pushState(null, "", location.pathname + location.search);
+    scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  document.querySelectorAll("[data-group]").forEach(button => button.addEventListener("click", () => showGroup(button.dataset.group)));
+  document.querySelectorAll("[data-home]").forEach(button => button.addEventListener("click", () => showHome()));
+  addEventListener("hashchange", () => location.hash ? showGroup(location.hash.slice(1), false) : showHome(false));
+  if (location.hash) showGroup(location.hash.slice(1), false);
+</script>
 </body>
 </html>
