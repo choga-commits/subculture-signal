@@ -7,6 +7,7 @@
   <title>SUBCULTURE SIGNAL</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./category.css">
+  <link rel="stylesheet" href="./archive.css">
 </head>
 <body>
 <main id="top">
@@ -78,6 +79,14 @@
   const landing = document.getElementById("landing-view");
   const detail = document.getElementById("detail-view");
   const datedBriefings = document.getElementById("dated-briefings");
+  const archiveDate = "2026-07-16";
+
+  function archiveRange(date) {
+    const end = new Date(`${date}T00:00:00+09:00`);
+    const start = new Date(end); start.setDate(start.getDate() - 1);
+    const compact = value => `${String(value.getMonth() + 1).padStart(2, "0")}.${String(value.getDate()).padStart(2, "0")}`;
+    return `${compact(start)} 09:00 — ${compact(end)} 08:59 KST`;
+  }
 
   function showGroup(id, updateHash = true) {
     const group = groups[id];
@@ -89,13 +98,17 @@
     document.getElementById("detail-count").innerHTML = `${articles.length} STORIES<br><small>VERIFIED LINKS</small>`;
     document.querySelectorAll(".category-switcher button").forEach(button => button.classList.toggle("active", button.dataset.group === id));
     datedBriefings.replaceChildren();
-    [...new Set(articles.map(article => article.dataset.date))].forEach(date => {
-      const dateArticles = articles.filter(article => article.dataset.date === date);
+    [archiveDate].forEach(date => {
+      const dateArticles = articles;
       const section = document.createElement("section"); section.className = "date-group";
       const heading = document.createElement("div"); heading.className = "date-heading";
-      heading.innerHTML = `<time>${date.replaceAll("-", ".")}</time><span>${dateArticles.length} STORIES</span>`;
+      heading.innerHTML = `<div><span>ARCHIVED ON</span><time>${date.replaceAll("-", ".")}</time></div><div class="archive-meta"><span>${dateArticles.length} STORIES</span><small>수집 범위 ${archiveRange(date)}</small></div>`;
       const grid = document.createElement("div"); grid.className = "card-grid";
-      dateArticles.forEach(article => grid.append(article.cloneNode(true)));
+      dateArticles.forEach(article => {
+        const clone = article.cloneNode(true);
+        clone.querySelector(".card-topline time").textContent = `원문 ${article.dataset.date.replaceAll("-", ".")}`;
+        grid.append(clone);
+      });
       section.append(heading, grid); datedBriefings.append(section);
     });
     landing.hidden = true; detail.hidden = false;
