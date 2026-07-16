@@ -1,0 +1,14 @@
+.date-heading {
+  gap: 28px;
+  padding: 0 0 20px;
+  border-top: 2px solid var(--ink);
+}
+.date-heading > div:first-child { padding-top: 14px; }
+.date-heading time { display: block; margin-top: 8px; }
+.date-heading span { font: 700 10px/1 monospace; letter-spacing: .1em; }
+.archive-meta { display: flex; flex-direction: column; align-items: end; gap: 8px; padding-bottom: 2px; text-align: right; }
+.archive-meta small { color: #555; font: 11px/1.3 monospace; }
+@media (max-width: 620px) {
+  .date-heading { align-items: start; flex-direction: column; gap: 16px; }
+  .archive-meta { align-items: start; text-align: left; }
+}
