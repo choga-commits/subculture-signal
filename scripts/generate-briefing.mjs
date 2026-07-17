@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const contentPath = path.join(rootDir, "content", "briefing.json");
+const archiveDir = path.join(rootDir, "content", "archives");
 const docsPath = path.join(rootDir, "docs", "index.html");
 const policyPath = path.join(rootDir, "content", "research-policy.md");
 const issueStartDate = "2026-07-16";
@@ -177,7 +178,7 @@ function validateBriefing(data, targetDate) {
 function articleHtml(item) {
   const sourceTime = item.publishedTime || "시각 미표기";
   const source = item.source || "원문";
-  return `<article class="story-card" data-group="${item.group}" data-date="${item.publishedAt}"><div class="card-topline"><span class="category-tag ${categoryClass[item.category]}">${escapeHtml(item.category)}</span><time>원문 ${item.publishedAt.replaceAll("-", ".")} · ${escapeHtml(sourceTime)}</time></div><h3>${escapeHtml(item.title)}</h3><p class="summary">${escapeHtml(item.summary)}</p><div class="why-box"><span>WHY IT MATTERS</span><p>${escapeHtml(item.why)}</p></div><div class="skill-line"><span>채용 키워드</span><div>${item.skills.map((skill) => `<b>#${escapeHtml(skill)}</b>`).join("")}</div></div><a class="source-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(source)} 확인 <span>↗</span></a></article>`;
+  return `<article class="story-card" data-group="${item.group}" data-date="${item.publishedAt}" data-archive="${item.archivedAt}"><div class="card-topline"><span class="category-tag ${categoryClass[item.category]}">${escapeHtml(item.category)}</span><time>원문 ${item.publishedAt.replaceAll("-", ".")} · ${escapeHtml(sourceTime)}</time></div><h3>${escapeHtml(item.title)}</h3><p class="summary">${escapeHtml(item.summary)}</p><div class="why-box"><span>WHY IT MATTERS</span><p>${escapeHtml(item.why)}</p></div><div class="skill-line"><span>채용 키워드</span><div>${item.skills.map((skill) => `<b>#${escapeHtml(skill)}</b>`).join("")}</div></div><a class="source-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(source)} 확인 <span>↗</span></a></article>`;
 }
 
 function renderDocs(data) {
@@ -261,7 +262,7 @@ function renderDocs(data) {
   const landing = document.getElementById("landing-view");
   const detail = document.getElementById("detail-view");
   const datedBriefings = document.getElementById("dated-briefings");
-  const archiveDate = "${data.meta.publishedOn}";
+  const archiveDates = ${JSON.stringify(Array.from(new Set(data.items.map((item) => item.archivedAt))).sort().reverse())};
 
   function archiveRange(date) {
     const end = new Date(\`\${date}T00:00:00+09:00\`);
@@ -281,8 +282,9 @@ function renderDocs(data) {
     document.querySelectorAll(".category-switcher button").forEach(button => button.classList.toggle("active", button.dataset.group === id));
     datedBriefings.replaceChildren();
 
-    [archiveDate].forEach(date => {
-      const dateArticles = articles;
+    archiveDates.forEach(date => {
+      const dateArticles = articles.filter(article => article.dataset.archive === date);
+      if (dateArticles.length === 0) return;
       const section = document.createElement("section");
       section.className = "date-group";
       const heading = document.createElement("div");
@@ -404,8 +406,22 @@ async function loadBriefing() {
 }
 
 async function saveBriefing(data) {
-  await mkdir(path.dirname(contentPath), { recursive: true });
-  await writeFile(contentPath, `${json(data)}\n`, "utf8");
+  await mkdir(archiveDir, { recursive: true });
+  await writeFile(path.join(archiveDir, `${data.meta.publishedOn}.json`), `${json(data)}\n`, "utf8");
+
+  let previous = { items: [] };
+  try {
+    previous = await loadBriefing();
+  } catch {
+    // The first archive has no aggregate yet.
+  }
+  const byUrl = new Map(previous.items.map((item) => [item.url, item]));
+  for (const item of data.items) byUrl.set(item.url, item);
+  const aggregate = {
+    ...data,
+    items: [...byUrl.values()].sort((a, b) => b.archivedAt.localeCompare(a.archivedAt) || b.publishedAt.localeCompare(a.publishedAt)),
+  };
+  await writeFile(contentPath, `${json(aggregate)}\n`, "utf8");
 }
 
 async function saveDocs(data) {
