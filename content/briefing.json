@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "issueNumber": 2,
+    "publishedOn": "2026-07-17",
+    "publishedLabel": "2026.07.17 FRI",
+    "intro": "관심 있는 카테고리를 선택하면 실제 게시일 기준 최신 기사부터 날짜별로 볼 수 있습니다."
+  },
+  "signals": [
+    {
+      "title": "K-WEBTOON EXPORT PIPELINE",
+      "description": "한국 웹툰이 일본 플랫폼 연재를 넘어 번역·단행본·서점 유통으로 깊게 들어갑니다.",
+      "level": 5
+    },
+    {
+      "title": "RELEASE OPS AS PRODUCT",
+      "description": "만화·애니 사업에서는 발매 타이밍과 특전 설계 자체가 제품 경쟁력으로 작동합니다.",
+      "level": 4
+    },
+    {
+      "title": "AI CHARACTER, NOW REGULATED",
+      "description": "AI 캐릭터는 상용화가 빨라지는 동시에 안전 정책과 규제 대응이 필수 역량이 됩니다.",
+      "level": 5
+    }
+  ],
+  "items": [
+    {
+      "group": "webtoon-novel",
+      "category": "웹툰",
+      "publishedAt": "2026-07-17",
+      "title": "일본 출판사 한날 한시, 한국 웹툰 단행본 4종 출간",
+      "summary": "一迅社 7월 발매 캘린더에는 7월 17일에 한국 원작 기반 타이틀 4종이 한꺼번에 배치됐습니다. 'もう一度、光の中へ', '義家族に執着されています', '継母だけど娘が可愛すぎる' 등이 포함됩니다.",
+      "why": "한국 웹툰의 일본 진출이 플랫폼 연재를 넘어 번역·편집·단행본 판매까지 정교한 출판 파이프라인으로 고착되고 있습니다.",
+      "skills": ["로컬라이징", "출판사업", "IP라이선싱"],
+      "url": "https://data.ichijinsha.co.jp/month/2026-07"
+    },
+    {
+      "group": "animation-manga",
+      "category": "만화",
+      "publishedAt": "2026-07-17",
+      "title": "白泉社, 7월 17일 여성향 코믹스와 종이 특전을 묶어 전개",
+      "summary": "白泉社의 2026년 7월 신간 페이지에는 '春の嵐とモンスター' 11권, '野良猫と狼' 7권, '推しに甘噛み' 10권 등 7월 17일 신간과 종이판 특전 정보가 함께 걸렸습니다.",
+      "why": "디지털 확산 뒤에도 만화 시장에서는 종이판 특전과 발매일 집중 편성이 팬덤 유지와 구매 전환의 핵심 도구로 남아 있습니다.",
+      "skills": ["출판마케팅", "굿즈제휴", "팬덤운영"],
+      "url": "https://www.hakusensha.co.jp/shinkan/?shinkan_month=07&shinkan_year=2026"
+    },
+    {
+      "group": "ai-character-chatbot",
+      "category": "AI 캐릭터",
+      "publishedAt": "2026-07-16",
+      "title": "에픽, LLM 대화형 NPC 섬 퍼블리싱을 7월 30일부터 허용",
+      "summary": "Epic Games는 Fortnite UEFN 제작자가 LLM 대화 기능을 넣은 섬을 7월 30일부터 정식 퍼블리시할 수 있다고 밝혔습니다. 36개 Fortnite 캐릭터에는 일관된 목소리와 페르소나가 기본 제공되고, Creator Portal 분석도 추가됩니다.",
+      "why": "AI 캐릭터가 실험용 데모를 넘어 수익화 가능한 UGC 제작도구로 이동하고 있습니다. 캐릭터 설계, 프롬프트 운영, 안전 정책 이해가 실무 역량이 됩니다.",
+      "skills": ["대화기획", "게임UX", "캐릭터시스템"],
+      "url": "https://www.fortnite.com/news/publish-islands-with-llm-conversations-starting-july-30"
+    },
+    {
+      "group": "animation-manga",
+      "category": "만화",
+      "publishedAt": "2026-07-16",
+      "title": "講談社, 실사·애니 연계 단행본을 7월 16일 배치",
+      "summary": "講談社 7월 캘린더에는 'ブルーロック 実写映画記念スターターセット', 'シャングリラ・フロンティア' 27권, 'ガチアクタ' 19권 등 핵심 타이틀이 같은 날 묶여 올라왔습니다.",
+      "why": "단행본 시장은 작품 하나만 잘 만드는 단계가 아니라 영상화 타이밍과 리테일 노출을 맞추는 편성 역량이 중요해졌다는 신호입니다.",
+      "skills": ["미디어믹스", "유통편성", "리테일캠페인"],
+      "url": "https://www.kodansha.co.jp/comic/calendar/202607"
+    },
+    {
+      "group": "animation-manga",
+      "category": "만화",
+      "publishedAt": "2026-07-16",
+      "title": "小学館, 디지털 잡지 발매를 7월 15~16일 촘촘히 이어간다",
+      "summary": "小学館 e코믹 스토어의 신간 잡지 목록에는 7월 15일 '週刊少年サンデー'와 'Sho-ComiX', 7월 16일 '月刊サンデーGX'가 연속 배치돼 있습니다.",
+      "why": "주간·월간·여성향 라인업을 디지털에서도 끊김 없이 이어가는 운영력이 구독 유지와 발견성에 직접 연결됩니다.",
+      "skills": ["전자출판", "메타데이터", "배포운영"],
+      "url": "https://e-comi.shogakukan.co.jp/magazines"
+    },
+    {
+      "group": "animation-manga",
+      "category": "애니메이션",
+      "publishedAt": "2026-07-15",
+      "title": "크런치롤, 10월 블루레이 라인업 공개로 2차 수익화 확대",
+      "summary": "Crunchyroll은 7월 15일 공지를 통해 'The Rising of the Shield Hero Season 4', 'Lord of Mysteries' 등을 포함한 2026년 10월 Blu-ray 발매 라인업을 공개했습니다.",
+      "why": "애니 산업의 수익 구조는 스트리밍 조회수만으로 끝나지 않습니다. 글로벌 판권, 패키지 판매, 팬덤 유지 전략을 함께 설계할 인력이 필요합니다.",
+      "skills": ["라이선싱", "홈엔터테인먼트", "글로벌유통"],
+      "url": "https://www.crunchyroll.com/news/announcements/2026/7/15/october-2026-home-video-crunchyroll-shield-hero-lord-of-mysteries"
+    },
+    {
+      "group": "ai-character-chatbot",
+      "category": "AI 캐릭터",
+      "publishedAt": "2026-07-15",
+      "title": "중국, AI 동반자 서비스 규제 시행",
+      "summary": "Xinhua는 7월 15일 중국이 AI 동반자 서비스의 정서적 의존을 억제하는 새 규정을 시행했다고 보도했습니다. 플랫폼에는 위기 개입, 과도 사용 제한, 데이터 통제 의무가 부과됩니다.",
+      "why": "AI 캐릭터 챗봇 시장은 기능 경쟁만으로 커지지 않습니다. 규제 대응, 신뢰·안전 운영, 위기 시나리오 설계가 제품 경쟁력의 일부가 됐습니다.",
+      "skills": ["AI정책", "신뢰안전", "서비스운영"],
+      "url": "https://www.china.org.cn/china/Off_the_Wire/2026-07/15/content_118600947.shtml"
+    },
+    {
+      "group": "webtoon-novel",
+      "category": "웹소설",
+      "publishedAt": "2026-07-15",
+      "title": "TO북스, 웹소설 원작을 소설·코믹·굿즈로 묶어 같은 날 전개",
+      "summary": "TOブックス 7월 신작 목록에는 '本好きの下剋上' 코믹스, '水属性の魔法使い', '淡海乃海' 같은 웹소설 계열 IP가 7월 15일 소설·코믹·굿즈 묶음으로 동시에 배치됐습니다.",
+      "why": "웹소설은 이제 단일 포맷 사업이 아니라 편집, MD, 커뮤니티 운영이 동시에 붙는 패키지형 IP 사업으로 굴러갑니다.",
+      "skills": ["IP패키징", "MD기획", "편집운영"],
+      "url": "https://tobooks.jp/contents?release_date_from=2026-07-01&release_date_to=2026-07-31&status%5Bavailable%5D=1&status%5Bpreorder%5D=1"
+    }
+  ]
+}
