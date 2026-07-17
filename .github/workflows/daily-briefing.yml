@@ -1,0 +1,46 @@
+name: Daily Subculture Briefing
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-subculture-briefing
+  cancel-in-progress: false
+
+jobs:
+  update-briefing:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Seoul
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_MODEL: gpt-5.6-terra
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate briefing content
+        run: node scripts/generate-briefing.mjs
+
+      - name: Commit updated briefing
+        run: |
+          if git diff --quiet -- content/briefing.json docs/index.html; then
+            echo "No briefing changes to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/briefing.json docs/index.html
+          git commit -m "Update daily subculture briefing"
+          git push
