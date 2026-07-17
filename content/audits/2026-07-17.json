@@ -1,0 +1,349 @@
+{
+  "archiveDate": "2026-07-17",
+  "window": {
+    "from": "2026-07-16T09:00:00+09:00",
+    "to": "2026-07-17T08:59:59+09:00"
+  },
+  "completedAt": "2026-07-17T16:30:00+09:00",
+  "statusLegend": {
+    "found": "확인 완료·적합 자료 있음",
+    "none": "확인 완료·해당 기간 적합 자료 없음",
+    "limited": "접근 또는 발행시각 확인 제한",
+    "searched": "네이버 뉴스 검색 완료·적합성 검토"
+  },
+  "naverKeywords": [
+    {
+      "keyword": "웹툰",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "웹소설",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "웹툰 플랫폼",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "웹툰 영상화",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "웹소설 웹툰화",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "노블코믹스",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "애니메이션 산업",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "한국 애니메이션",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "만화 산업",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "디지털 만화",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "출판만화",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "AI 캐릭터",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "AI 챗봇",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "AI 컴패니언",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "콘텐츠 IP",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "원천 IP",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "미디어믹스",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "콘텐츠 투자",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "인수 제휴 공동제작",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "콘텐츠 해외 진출",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "글로벌 콘텐츠",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "콘텐츠 업계 채용",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "웹툰 PD",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "콘텐츠 AI",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    },
+    {
+      "keyword": "생성형 AI 저작권",
+      "status": "searched",
+      "note": "네이버 뉴스 날짜별 검색 완료; 적합성·원문·중복 검토"
+    }
+  ],
+  "officialSources": [
+    {
+      "source": "네이버웹툰",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "WEBTOON Entertainment",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "카카오엔터테인먼트",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "카카오페이지",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "리디",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "문피아",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "조아라",
+      "status": "limited",
+      "note": "로그인·동적 목록 또는 정확한 게시시각 확인 제한"
+    },
+    {
+      "source": "레진코믹스",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "키다리스튜디오",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "넷플릭스",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "라프텔",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "티빙",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "웨이브",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "쿠팡플레이",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "CJ ENM",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "스튜디오드래곤",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "대원미디어",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "SAMG엔터테인먼트",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "Character.AI",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "스캐터랩",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "제타",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "뤼튼",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "Replika",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "Talkie",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "CHAI",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "문화체육관광부",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "한국콘텐츠진흥원",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "국가통계포털(KOSIS)",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "공공데이터포털",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "영화진흥위원회",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "한국출판문화산업진흥원",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "기업 채용 홈페이지",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "원티드",
+      "status": "limited",
+      "note": "로그인·동적 목록 또는 정확한 게시시각 확인 제한"
+    },
+    {
+      "source": "잡코리아",
+      "status": "limited",
+      "note": "로그인·동적 목록 또는 정확한 게시시각 확인 제한"
+    },
+    {
+      "source": "사람인",
+      "status": "limited",
+      "note": "로그인·동적 목록 또는 정확한 게시시각 확인 제한"
+    },
+    {
+      "source": "WEBTOON Entertainment IR",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "Netflix Newsroom",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "Character.AI Blog",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "일본 주요 출판사·애니메이션 제작사",
+      "status": "none",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    },
+    {
+      "source": "글로벌 OTT·배급사",
+      "status": "found",
+      "note": "뉴스룸·공지·보도자료·IR·블로그의 기간 내 게시물 확인"
+    }
+  ],
+  "result": {
+    "storedItems": 6,
+    "deduplicatedClusters": 1,
+    "outOfWindowRemoved": 3
+  }
+}
+
