@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "issueNumber": 3,
+    "publishedOn": "2026-07-17",
+    "publishedLabel": "2026.07.17 FRI",
+    "intro": "2026년 7월 16일 09:00부터 7월 17일 08:59(KST)까지 수집한 자료입니다. 원문 발행시각과 직접 링크를 함께 제공합니다."
+  },
+  "signals": [
+    {
+      "title": "CONTENT IP EXPANSION",
+      "description": "캐릭터·웹툰 IP가 애니메이션, 상품, 식음료와 글로벌 협력으로 확장되고 있습니다.",
+      "level": 5
+    },
+    {
+      "title": "NOVEL TO WEBTOON PIPELINE",
+      "description": "웹소설의 웹툰화와 공공 제작지원이 동시에 작동하는 사례가 확인됐습니다.",
+      "level": 4
+    },
+    {
+      "title": "AI CHARACTER PRODUCTIZATION",
+      "description": "대화형 캐릭터가 이용자 제작·퍼블리싱이 가능한 상용 도구로 이동하고 있습니다.",
+      "level": 5
+    }
+  ],
+  "items": [
+    {
+      "group": "webtoon-novel",
+      "category": "웹툰",
+      "publishedAt": "2026-07-16",
+      "publishedTime": "16:19",
+      "archivedAt": "2026-07-17",
+      "collectedAt": "2026-07-17 09:00 KST",
+      "source": "동아일보",
+      "sourceType": "뉴스",
+      "title": "라인망가, 일본 편의점에서 선불카드 유통 시작",
+      "summary": "한국선불카드가 네이버웹툰의 일본어 플랫폼 라인망가 운영사 라인데지털프론티어와 직접 연동해 일본 주요 편의점에서 POSA 카드를 출시했습니다.",
+      "why": "웹툰 플랫폼의 일본 사업이 디지털 결제를 넘어 현지 오프라인 유통망과 연결된 사례입니다.",
+      "skills": ["글로벌사업", "결제제휴", "현지유통"],
+      "tags": ["웹툰 플랫폼", "해외진출", "일본", "사업제휴"],
+      "url": "https://www.donga.com/news/Economy/article/all/20260716/134312461/1"
+    },
+    {
+      "group": "webtoon-novel",
+      "category": "웹툰",
+      "publishedAt": "2026-07-16",
+      "publishedTime": "17:21",
+      "archivedAt": "2026-07-17",
+      "collectedAt": "2026-07-17 09:00 KST",
+      "source": "머니투데이",
+      "sourceType": "뉴스",
+      "title": "브리드컴퍼니, 웹소설 ‘아역부터 월드스타!’ 웹툰 론칭",
+      "summary": "브리드컴퍼니가 웹소설 연재 재개와 웹툰 론칭을 함께 발표했습니다. 원작은 한국출판문화산업진흥원의 웹소설 일러스트 제작 지원사업 대상작에도 선정됐습니다.",
+      "why": "웹소설 원작의 웹툰화와 공공 제작지원이 결합된 IP 확장 사례입니다.",
+      "skills": ["노블코믹스", "IP확장", "작가지원"],
+      "tags": ["웹소설", "웹툰 영상화·웹툰화", "공공지원"],
+      "url": "https://www.mt.co.kr/industry/2026/07/16/2026071612332689683"
+    },
+    {
+      "group": "webtoon-novel",
+      "category": "웹툰",
+      "publishedAt": "2026-07-16",
+      "publishedTime": "시각 미표기",
+      "archivedAt": "2026-07-17",
+      "collectedAt": "2026-07-17 09:00 KST",
+      "source": "디트NEWS24",
+      "sourceType": "뉴스",
+      "title": "‘웹툰로드’ 참가단, 태국 문화부와 웹툰 교류 논의",
+      "summary": "상명대 주관 웹툰로드 참가단이 태국 문화부 장관과 만나 양국 웹툰·문화콘텐츠 교류 및 협력 가능성을 논의했습니다.",
+      "why": "한국 웹툰 인력과 IP의 동남아 네트워크 확대를 보여주는 해외 진출 신호입니다.",
+      "skills": ["글로벌사업", "산학협력", "현지네트워크"],
+      "tags": ["웹툰", "해외진출", "태국"],
+      "url": "https://www.dtnews24.com/news/articleView.html?idxno=813351"
+    },
+    {
+      "group": "animation-manga",
+      "category": "애니메이션",
+      "publishedAt": "2026-07-16",
+      "publishedTime": "18:54",
+      "archivedAt": "2026-07-17",
+      "collectedAt": "2026-07-17 09:00 KST",
+      "source": "파이낸셜뉴스",
+      "sourceType": "뉴스",
+      "title": "캐릭터 라이선싱 페어 2026 개막…186개사 참여",
+      "summary": "문체부 주최·콘진원과 코엑스 공동 주관 행사에 186개사가 443개 부스로 참가했습니다. 애니메이션 특별관, 한류 IP관, 라이선싱 협업 사례가 함께 공개됐습니다.",
+      "why": "캐릭터·웹툰·애니메이션 IP가 소비재와 글로벌 유통으로 확장되는 산업 현황을 한 번에 보여줍니다.",
+      "skills": ["IP라이선싱", "글로벌유통", "사업제휴"],
+      "tags": ["콘텐츠IP", "애니메이션", "라이선싱", "정책"],
+      "referenceUrls": [
+        "https://www.nspna.com/news/?mode=view&newsid=820991",
+        "https://www.sedaily.com/article/20068741?ref=naver"
+      ],
+      "url": "https://www.fnnews.com/news/202607161837226282"
+    },
+    {
+      "group": "animation-manga",
+      "category": "애니메이션",
+      "publishedAt": "2026-07-16",
+      "publishedTime": "시각 미표기",
+      "archivedAt": "2026-07-17",
+      "collectedAt": "2026-07-17 09:00 KST",
+      "source": "포인트데일리",
+      "sourceType": "뉴스",
+      "title": "롯데백화점, 자체 IP ‘랄라와 친구들’ 애니메이션 공개",
+      "summary": "롯데백화점이 캐릭터 라이선싱 페어에서 자체 IP 킨더유니버스의 생활습관 교육 애니메이션 ‘랄라와 친구들’을 공개했습니다.",
+      "why": "유통기업이 자체 캐릭터를 애니메이션으로 확장하며 IP 사업 경쟁력을 높이는 사례입니다.",
+      "skills": ["캐릭터사업", "애니메이션제작", "리테일IP"],
+      "tags": ["애니메이션", "콘텐츠IP", "기업사업"],
+      "url": "https://www.pointdaily.co.kr/news/articleView.html?idxno=312257"
+    },
+    {
+      "group": "ai-character-chatbot",
+      "category": "AI 캐릭터",
+      "publishedAt": "2026-07-16",
+      "publishedTime": "시각 미표기",
+      "archivedAt": "2026-07-17",
+      "collectedAt": "2026-07-17 09:00 KST",
+      "source": "Epic Games",
+      "sourceType": "기업 뉴스룸",
+      "title": "에픽, LLM 대화형 NPC 섬 퍼블리싱 허용 발표",
+      "summary": "Epic Games는 7월 30일부터 Fortnite UEFN 제작자가 LLM 대화를 포함한 섬을 퍼블리시할 수 있다고 발표했습니다. 36개 캐릭터의 목소리와 페르소나도 제공합니다.",
+      "why": "AI 캐릭터가 실험 단계를 넘어 이용자 제작과 배포가 가능한 콘텐츠 제작 도구로 상용화되는 신호입니다.",
+      "skills": ["대화기획", "캐릭터시스템", "창작도구"],
+      "tags": ["AI캐릭터", "대화형콘텐츠", "앱업데이트", "해외사례"],
+      "url": "https://www.fortnite.com/news/publish-islands-with-llm-conversations-starting-july-30"
+    }
+  ]
+}
+
