@@ -1,8 +1,4 @@
-.date-heading {
-  gap: 28px;
-  padding: 0 0 20px;
-  border-top: 2px solid var(--ink);
-}
+.date-heading { gap: 28px; padding: 0 0 20px; border-top: 2px solid var(--ink); }
 .date-heading > div:first-child { padding-top: 14px; }
 .date-heading time { display: block; margin-top: 8px; }
 .date-heading span { font: 700 10px/1 monospace; letter-spacing: .1em; }
