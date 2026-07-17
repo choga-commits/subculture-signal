@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const contentPath = path.join(rootDir, "content", "briefing.json");
 const docsPath = path.join(rootDir, "docs", "index.html");
+const policyPath = path.join(rootDir, "content", "research-policy.md");
 const issueStartDate = "2026-07-16";
 const dayLabels = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 const groups = {
@@ -106,26 +107,30 @@ function normalizeItem(item) {
   return {
     group: item.group,
     category: item.category,
+    archivedAt: item.archivedAt,
+    collectedAt: item.collectedAt,
     publishedAt: item.publishedAt,
+    publishedTime: item.publishedTime || "시각 미표기",
+    source: item.source.trim(),
+    sourceType: item.sourceType.trim(),
     title: item.title.trim(),
     summary: item.summary.trim(),
     why: item.why.trim(),
     skills: item.skills.map((skill) => skill.trim()).filter(Boolean),
+    tags: item.tags.map((tag) => tag.trim()).filter(Boolean),
     url: item.url.trim(),
+    referenceUrls: (item.referenceUrls ?? []).map((url) => url.trim()).filter(Boolean),
+    pdfUrl: item.pdfUrl?.trim() || null,
   };
 }
 
 function validateBriefing(data, targetDate) {
   if (!data || typeof data !== "object") throw new Error("브리핑 데이터가 비어 있습니다.");
-  if (!Array.isArray(data.items) || data.items.length < 6 || data.items.length > 10) {
-    throw new Error("기사 수는 6~10건이어야 합니다.");
-  }
-  if (!Array.isArray(data.signals) || data.signals.length !== 3) {
-    throw new Error("신호 지표는 정확히 3개여야 합니다.");
-  }
+  if (!Array.isArray(data.items)) throw new Error("items는 배열이어야 합니다.");
+  if (!Array.isArray(data.signals) || data.signals.length > 3) throw new Error("신호 지표는 최대 3개여야 합니다.");
 
   const earliest = new Date(`${targetDate}T00:00:00+09:00`);
-  earliest.setDate(earliest.getDate() - 3);
+  earliest.setDate(earliest.getDate() - 1);
   const earliestString = `${earliest.getFullYear()}-${String(earliest.getMonth() + 1).padStart(2, "0")}-${String(earliest.getDate()).padStart(2, "0")}`;
 
   const seenUrls = new Set();
@@ -136,12 +141,16 @@ function validateBriefing(data, targetDate) {
     if (item.group === "webtoon-novel" && !["웹툰", "웹소설"].includes(item.category)) throw new Error("웹툰/웹소설 그룹 분류 오류");
     if (item.group === "animation-manga" && !["애니메이션", "만화"].includes(item.category)) throw new Error("애니메이션/만화 그룹 분류 오류");
     if (item.group === "ai-character-chatbot" && item.category !== "AI 캐릭터") throw new Error("AI 캐릭터 챗봇 그룹 분류 오류");
+    if (item.archivedAt !== targetDate) throw new Error(`수집일 오류: ${item.archivedAt}`);
+    if (!item.collectedAt.includes(targetDate)) throw new Error(`수집일시 오류: ${item.collectedAt}`);
     if (!/^20\d{2}-\d{2}-\d{2}$/.test(item.publishedAt)) throw new Error(`날짜 형식 오류: ${item.publishedAt}`);
-    if (item.publishedAt > targetDate || item.publishedAt < earliestString) throw new Error(`기사 날짜 범위 오류: ${item.publishedAt}`);
+    if ((item.publishedAt > targetDate || item.publishedAt < earliestString) && !item.tags.includes("지연 발견")) throw new Error(`기사 날짜 범위 오류: ${item.publishedAt}`);
     if (!/^https:\/\//.test(item.url)) throw new Error(`URL 형식 오류: ${item.url}`);
     if (seenUrls.has(item.url)) throw new Error(`중복 URL: ${item.url}`);
     seenUrls.add(item.url);
     if (item.skills.length < 2 || item.skills.length > 4) throw new Error(`skills 개수 오류: ${item.title}`);
+    if (!item.source || !item.sourceType || item.tags.length === 0) throw new Error(`출처·유형·태그 누락: ${item.title}`);
+    for (const url of [...item.referenceUrls, ...(item.pdfUrl ? [item.pdfUrl] : [])]) if (!/^https:\/\//.test(url)) throw new Error(`참고 URL 형식 오류: ${url}`);
   }
 
   const normalizedSignals = data.signals.map((signal) => ({
@@ -158,7 +167,7 @@ function validateBriefing(data, targetDate) {
       issueNumber: issueNumberFor(targetDate),
       publishedOn: targetDate,
       publishedLabel: formatPublishedLabel(targetDate),
-      intro: "관심 있는 카테고리를 선택하면 실제 게시일 기준 최신 기사부터 날짜별로 볼 수 있습니다.",
+      intro: "관심 있는 카테고리를 선택하면 오늘 수집한 자료와 원문 발행일을 함께 볼 수 있습니다.",
     },
     signals: normalizedSignals,
     items: normalizedItems,
@@ -166,7 +175,9 @@ function validateBriefing(data, targetDate) {
 }
 
 function articleHtml(item) {
-  return `<article class="story-card" data-group="${item.group}" data-date="${item.publishedAt}"><div class="card-topline"><span class="category-tag ${categoryClass[item.category]}">${escapeHtml(item.category)}</span><time>원문 ${item.publishedAt.replaceAll("-", ".")}</time></div><h3>${escapeHtml(item.title)}</h3><p class="summary">${escapeHtml(item.summary)}</p><div class="why-box"><span>WHY IT MATTERS</span><p>${escapeHtml(item.why)}</p></div><div class="skill-line"><span>채용 키워드</span><div>${item.skills.map((skill) => `<b>#${escapeHtml(skill)}</b>`).join("")}</div></div><a class="source-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">원문 확인 <span>↗</span></a></article>`;
+  const sourceTime = item.publishedTime || "시각 미표기";
+  const source = item.source || "원문";
+  return `<article class="story-card" data-group="${item.group}" data-date="${item.publishedAt}"><div class="card-topline"><span class="category-tag ${categoryClass[item.category]}">${escapeHtml(item.category)}</span><time>원문 ${item.publishedAt.replaceAll("-", ".")} · ${escapeHtml(sourceTime)}</time></div><h3>${escapeHtml(item.title)}</h3><p class="summary">${escapeHtml(item.summary)}</p><div class="why-box"><span>WHY IT MATTERS</span><p>${escapeHtml(item.why)}</p></div><div class="skill-line"><span>채용 키워드</span><div>${item.skills.map((skill) => `<b>#${escapeHtml(skill)}</b>`).join("")}</div></div><a class="source-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(source)} 확인 <span>↗</span></a></article>`;
 }
 
 function renderDocs(data) {
@@ -185,6 +196,7 @@ function renderDocs(data) {
   <title>SUBCULTURE SIGNAL</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./category.css">
+  <link rel="stylesheet" href="./archive.css">
 </head>
 <body>
 <main id="top">
@@ -249,25 +261,33 @@ function renderDocs(data) {
   const landing = document.getElementById("landing-view");
   const detail = document.getElementById("detail-view");
   const datedBriefings = document.getElementById("dated-briefings");
+  const archiveDate = "${data.meta.publishedOn}";
+
+  function archiveRange(date) {
+    const end = new Date(\`\${date}T00:00:00+09:00\`);
+    const start = new Date(end); start.setDate(start.getDate() - 1);
+    const compact = value => \`\${String(value.getMonth() + 1).padStart(2, "0")}.\${String(value.getDate()).padStart(2, "0")}\`;
+    return \`\${compact(start)} 09:00 — \${compact(end)} 08:59 KST\`;
+  }
 
   function showGroup(id, updateHash = true) {
     const group = groups[id];
     if (!group) return showHome(false);
-    const articles = [...document.querySelectorAll(`#article-store .story-card[data-group="${id}"]`)].sort((a, b) => b.dataset.date.localeCompare(a.dataset.date));
+    const articles = [...document.querySelectorAll(\`#article-store .story-card[data-group="\${id}"]\`)].sort((a, b) => b.dataset.date.localeCompare(a.dataset.date));
     document.getElementById("detail-eyebrow").textContent = group.eyebrow;
     document.getElementById("detail-title").textContent = group.title;
     document.getElementById("detail-description").textContent = group.description;
-    document.getElementById("detail-count").innerHTML = `${articles.length} STORIES<br><small>VERIFIED LINKS</small>`;
+    document.getElementById("detail-count").innerHTML = \`\${articles.length} STORIES<br><small>VERIFIED LINKS</small>\`;
     document.querySelectorAll(".category-switcher button").forEach(button => button.classList.toggle("active", button.dataset.group === id));
     datedBriefings.replaceChildren();
 
-    [...new Set(articles.map(article => article.dataset.date))].forEach(date => {
-      const dateArticles = articles.filter(article => article.dataset.date === date);
+    [archiveDate].forEach(date => {
+      const dateArticles = articles;
       const section = document.createElement("section");
       section.className = "date-group";
       const heading = document.createElement("div");
       heading.className = "date-heading";
-      heading.innerHTML = `<div><span>PUBLISHED ON</span><time>${date.replaceAll("-", ".")}</time></div><div class="archive-meta"><span>${dateArticles.length} STORIES</span><small>실제 게시일 기준 최신순</small></div>`;
+      heading.innerHTML = \`<div><span>ARCHIVED ON</span><time>\${date.replaceAll("-", ".")}</time></div><div class="archive-meta"><span>\${dateArticles.length} STORIES</span><small>수집 범위 \${archiveRange(date)}</small></div>\`;
       const grid = document.createElement("div");
       grid.className = "card-grid";
       dateArticles.forEach(article => {
@@ -304,20 +324,21 @@ async function fetchBriefingFromOpenAI(targetDate) {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) throw new Error("OPENAI_API_KEY 환경 변수가 필요합니다.");
 
+  const researchPolicy = await readFile(policyPath, "utf8");
   const prompt = [
     `Today is ${targetDate} in Asia/Seoul.`,
-    "Search the public web and prepare a Korean morning briefing called SUBCULTURE SIGNAL.",
-    "Scope: subculture industry updates from the last 24 to 72 hours only.",
-    "Coverage focus: webtoon, web novel, AI character chatbot, manga, animation.",
-    "Prioritize official announcements, company press releases, public institutions, and reliable trade publications.",
-    "Verify the actual published date and direct source URL for every item.",
-    "Exclude duplicates, thin promotional copy, rumor, reposts, and any item with uncertain sourcing.",
-    "Return 6 to 10 items total and exactly 3 signal bullets.",
+    `Collection window: previous day 09:00 inclusive through ${targetDate} 09:00 exclusive in Asia/Seoul.`,
+    "Follow the complete Korean research policy below. Do not impose an item-count target or discard eligible items based on perceived importance.",
+    researchPolicy,
+    "Use Naver News as the required first discovery path for all news keyword groups, then store only the publisher's direct original URL.",
+    "Return every eligible, verified, deduplicated item found in the time window and up to 3 evidence-based signal bullets.",
     "Every item must be categorized using one exact group/category pair:",
     '- group "webtoon-novel" with category "웹툰" or "웹소설"',
     '- group "animation-manga" with category "애니메이션" or "만화"',
     '- group "ai-character-chatbot" with category "AI 캐릭터"',
     "Use YYYY-MM-DD for publishedAt.",
+    `Use ${targetDate} for archivedAt and an ISO-8601 KST timestamp on ${targetDate} for collectedAt.`,
+    "Use publishedTime as HH:MM when the source exposes a time; otherwise use the exact string 시각 미표기.",
     "Write concise Korean summaries and why-it-matters notes for job seekers.",
     "skills must contain 2 to 4 short Korean keywords without # prefixes.",
     "Return valid JSON only, no markdown fences, with this shape:",
@@ -326,12 +347,20 @@ async function fetchBriefingFromOpenAI(targetDate) {
       items: [{
         group: "webtoon-novel",
         category: "웹툰",
+        archivedAt: targetDate,
+        collectedAt: `${targetDate}T09:00:00+09:00`,
         publishedAt: targetDate,
+        publishedTime: "08:30",
+        source: "발행처명",
+        sourceType: "뉴스",
         title: "string",
         summary: "string",
         why: "string",
         skills: ["string", "string", "string"],
-        url: "https://example.com"
+        tags: ["웹툰", "플랫폼"],
+        url: "https://publisher.example.com/original",
+        referenceUrls: ["https://another-source.example.com/original"],
+        pdfUrl: null
       }],
     }),
   ].join("\n");
@@ -350,7 +379,7 @@ async function fetchBriefingFromOpenAI(targetDate) {
       input: [
         {
           role: "system",
-          content: [{ type: "input_text", text: "You are a meticulous industry editor. You verify dates, avoid speculation, and obey output schemas exactly." }],
+          content: [{ type: "input_text", text: researchPolicy }],
         },
         {
           role: "user",
