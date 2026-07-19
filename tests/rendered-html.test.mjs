@@ -46,5 +46,6 @@ test("GitHub Pages edition keeps every article categorized and dated", async () 
   assert.match(html, /archiveDates\.forEach/);
   assert.match(html, /ARCHIVED ON/);
   assert.match(html, /수집 범위/);
+  assert.ok(Array.isArray(briefing.archives));
   assert.match(html, new RegExp(`ISSUE ${String(briefing.meta.issueNumber).padStart(3, "0")}`));
 });
