@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { briefItems, briefingMeta, signals } from "./data";
+import { archiveDates, briefItems, briefingMeta, signals } from "./data";
 
 const categoryClass: Record<string, string> = {
   "AI 캐릭터": "tag-ai",
@@ -71,7 +71,7 @@ export default function CategoryBriefing() {
     const items = briefItems
       .filter((item) => (activeGroup.categories as readonly string[]).includes(item.category))
       .toSorted((a, b) => b.publishedAt.localeCompare(a.publishedAt));
-    return Array.from(new Set(items.map((item) => item.archivedAt))).toSorted((a, b) => b.localeCompare(a)).map((date) => ({
+    return archiveDates.map((date) => ({
       date,
       items: items.filter((item) => item.archivedAt === date),
     }));
@@ -166,18 +166,30 @@ export default function CategoryBriefing() {
                   <div><span>ARCHIVED ON</span><time id={`date-${dateGroup.date}`}>{formatDate(dateGroup.date)}</time></div>
                   <div className="archive-meta"><span>{dateGroup.items.length} STORIES</span><small>수집 범위 {formatArchiveRange(dateGroup.date)}</small></div>
                 </div>
-                <div className="card-grid">
-                  {dateGroup.items.map((item) => (
-                    <article className="story-card" key={item.title}>
-                      <div className="card-topline"><span className={`category-tag ${categoryClass[item.category]}`}>{item.category}</span><time>원문 {formatDate(item.publishedAt)}</time></div>
-                      <h3>{item.title}</h3>
-                      <p className="summary">{item.summary}</p>
-                      <div className="why-box"><span>WHY IT MATTERS</span><p>{item.why}</p></div>
-                      <div className="skill-line"><span>채용 키워드</span><div>{item.skills.map((skill) => <b key={skill}>#{skill}</b>)}</div></div>
-                      <a className="source-link" href={item.url} target="_blank" rel="noreferrer">원문 확인 <span aria-hidden="true">↗</span></a>
+                {dateGroup.items.length > 0 ? (
+                  <div className="card-grid">
+                    {dateGroup.items.map((item) => (
+                      <article className="story-card" key={item.title}>
+                        <div className="card-topline"><span className={`category-tag ${categoryClass[item.category]}`}>{item.category}</span><time>원문 {formatDate(item.publishedAt)}</time></div>
+                        <h3>{item.title}</h3>
+                        <p className="summary">{item.summary}</p>
+                        <div className="why-box"><span>WHY IT MATTERS</span><p>{item.why}</p></div>
+                        <div className="skill-line"><span>채용 키워드</span><div>{item.skills.map((skill) => <b key={skill}>#{skill}</b>)}</div></div>
+                        <a className="source-link" href={item.url} target="_blank" rel="noreferrer">원문 확인 <span aria-hidden="true">↗</span></a>
+                      </article>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="card-grid">
+                    <article className="story-card">
+                      <div className="card-topline"><span className="category-tag">없음</span><time>원문 없음</time></div>
+                      <h3>주요 신규 신호 없음</h3>
+                      <p className="summary">정책 기준 조사 범위 안에서 이 카테고리에 해당하는 새 적격 자료를 확인하지 못했습니다.</p>
+                      <div className="why-box"><span>WHY IT MATTERS</span><p>빈 회차도 날짜 단위로 보존해 누락과 공백을 구분합니다.</p></div>
+                      <div className="skill-line"><span>채용 키워드</span><div><b>#모니터링</b><b>#자료조사</b></div></div>
                     </article>
-                  ))}
-                </div>
+                  </div>
+                )}
               </section>
             ))}
           </div>
