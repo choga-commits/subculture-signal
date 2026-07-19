@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "issueNumber": 4,
+    "publishedOn": "2026-07-19",
+    "publishedLabel": "2026.07.19 SAT",
+    "intro": "2026년 7월 18일 09:00부터 7월 19일 08:59(KST)까지 직접 신규 적격 자료는 없었고, 기존 누락본 2건을 지연 발견으로 포함했습니다."
+  },
+  "signals": [
+    {
+      "title": "DELAYED PLATFORM SLATE CHECK",
+      "description": "직접 신규 공시는 없었지만, 플랫폼 편성 전략 관련 누락본 1건을 지연 발견으로 보강했습니다.",
+      "level": 2
+    },
+    {
+      "title": "AI CHARACTER FORMAT EXPANSION",
+      "description": "Character.AI의 마이크로드라마형 포맷을 지연 발견으로 추가해 영상 결합 흐름을 보완했습니다.",
+      "level": 3
+    }
+  ],
+  "archives": [
+    {
+      "date": "2026-07-19",
+      "itemCount": 2
+    }
+  ],
+  "items": [
+    {
+      "group": "webtoon-novel",
+      "category": "웹툰",
+      "publishedAt": "2026-07-15",
+      "publishedTime": "시각 미표기",
+      "archivedAt": "2026-07-19",
+      "collectedAt": "2026-07-19 09:00 KST",
+      "source": "카카오엔터테인먼트",
+      "sourceType": "기업 보도자료",
+      "title": "카카오엔터, 7월 신작 웹툰으로 공감과 몰입 모두 잡는다",
+      "summary": "카카오엔터테인먼트가 7월 웹툰 신작 라인업을 공개하며 자전적 서사와 장르 판타지를 함께 전면 배치했습니다.",
+      "why": "플랫폼이 감정 공감형 실화 서사와 팬덤형 장르물을 동시에 편성하며 웹툰 IP 포트폴리오를 넓히는 전략으로 읽힙니다.",
+      "skills": [
+        "편성기획",
+        "IP소싱",
+        "플랫폼운영"
+      ],
+      "tags": [
+        "웹툰",
+        "플랫폼",
+        "신작",
+        "지연 발견"
+      ],
+      "url": "https://kakaoent.com/pr/detail/540",
+      "referenceUrls": [],
+      "pdfUrl": null
+    },
+    {
+      "group": "ai-character-chatbot",
+      "category": "AI 캐릭터",
+      "publishedAt": "2026-07-09",
+      "publishedTime": "시각 미표기",
+      "archivedAt": "2026-07-19",
+      "collectedAt": "2026-07-19 09:00 KST",
+      "source": "Character.AI",
+      "sourceType": "기업 블로그",
+      "title": "Introducing (c.ai) series: Studio-Made Microdramas on Character.ai",
+      "summary": "Character.AI가 앱 안에서 짧은 세로형 드라마를 본 뒤 등장 캐릭터와 바로 대화를 이어갈 수 있는 마이크로드라마 포맷을 공개했습니다.",
+      "why": "AI 캐릭터 서비스가 텍스트 채팅을 넘어 영상 소비와 상호작용을 결합한 엔터테인먼트 포맷으로 확장되는 신호입니다.",
+      "skills": [
+        "캐릭터기획",
+        "포맷개발",
+        "팬경험"
+      ],
+      "tags": [
+        "AI캐릭터",
+        "대화형콘텐츠",
+        "영상확장",
+        "해외사례",
+        "지연 발견"
+      ],
+      "url": "https://blog.character.ai/cai-series/",
+      "referenceUrls": [],
+      "pdfUrl": null
+    }
+  ]
+}
