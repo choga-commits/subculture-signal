@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "issueNumber": 8,
+    "publishedOn": "2026-07-23",
+    "publishedLabel": "2026.07.23 THU",
+    "intro": "2026년 7월 22일 09:00부터 7월 23일 08:59(KST)까지 직접 신규 적격 자료 1건을 확인했습니다."
+  },
+  "signals": [
+    {
+      "title": "IP LICENSING EXPO SCALE-UP",
+      "description": "라이선싱콘 엑스포 2026이 17만명 규모로 마감되며 캐릭터·애니메이션·웹툰 IP의 오프라인 비즈니스 확장성을 드러냈습니다.",
+      "level": 3
+    }
+  ],
+  "archives": [
+    {
+      "date": "2026-07-23",
+      "itemCount": 1
+    }
+  ],
+  "items": [
+    {
+      "group": "animation-manga",
+      "category": "애니메이션",
+      "publishedAt": "2026-07-22",
+      "publishedTime": "10:20",
+      "archivedAt": "2026-07-23",
+      "collectedAt": "2026-07-23 09:00 KST",
+      "source": "뉴시스",
+      "sourceType": "뉴스",
+      "title": "창의적인 IP와 기술의 만남... 라이선싱콘 엑스포 2026, 17만명 성황리 폐막",
+      "summary": "서울 코엑스에서 열린 라이선싱콘 엑스포 2026이 17만명 규모 방문으로 마무리됐고, 캐릭터 라이선싱 페어와 브랜디드 엔터테인먼트·IP 마켓이 함께 운영됐습니다.",
+      "why": "국내 캐릭터·애니메이션·웹툰 IP가 라이선싱과 기술 결합을 통해 B2B 유통, 협업, 해외 확장 기회를 넓히고 있다는 시장 신호입니다.",
+      "skills": [
+        "IP라이선싱",
+        "사업개발",
+        "콘텐츠마케팅"
+      ],
+      "tags": [
+        "애니메이션",
+        "콘텐츠IP",
+        "라이선싱",
+        "전시행사"
+      ],
+      "url": "https://mobile.newsis.com/view_amp.html?ar_id=NISX20260722_0003718283",
+      "referenceUrls": [],
+      "pdfUrl": null
+    }
+  ]
+}
